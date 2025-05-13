@@ -12,7 +12,7 @@ public class GridPaneFormulaireReservation extends GridPane {
         setGridLinesVisible(false);
 
 
-        Label cours = new Label("_Cours"); // Cours
+        Label cours = new Label("_Cours");
         TextField eventName = new TextField();
         eventName.setPromptText("Entrer un nom de cours");
         cours.setLabelFor(eventName);
@@ -20,12 +20,12 @@ public class GridPaneFormulaireReservation extends GridPane {
         Label level = new Label("_Type");
 
         ToggleGroup group = new ToggleGroup();
-        RadioButton debutant = new RadioButton("_TD");
-        debutant.setSelected(true);
-        RadioButton moyen = new RadioButton("_TP");
-        RadioButton avance = new RadioButton("_Amphi");
-        RadioButton expert = new RadioButton("_DS");
-        group.getToggles().addAll(debutant, moyen, avance, expert);
+        RadioButton TD = new RadioButton("_TD");
+        TD.setSelected(true);
+        RadioButton TP = new RadioButton("_TP");
+        RadioButton Amphi = new RadioButton("_Amphi");
+        RadioButton DS = new RadioButton("_DS");
+        group.getToggles().addAll(TD, TP, Amphi, DS);
 
         Label from = new Label("De");
         Label to = new Label("A");
@@ -53,10 +53,10 @@ public class GridPaneFormulaireReservation extends GridPane {
         add(eventName, 1, 0);
 
         add(level, 0, 1);
-        add(debutant, 1, 1);
-        add(moyen, 2, 1);
-        add(avance, 1, 2);
-        add(expert, 2, 2);
+        add(TD, 1, 1);
+        add(TP, 2, 1);
+        add(Amphi, 1, 2);
+        add(DS, 2, 2);
 
         add(from, 0, 3);
         add(to, 2, 3);
@@ -74,10 +74,10 @@ public class GridPaneFormulaireReservation extends GridPane {
             @Override
             public void handle(ActionEvent actionEvent) {
                 eventName.clear();
-                debutant.setSelected(true);
-                moyen.setSelected(false);
-                avance.setSelected(false);
-                expert.setSelected(false);
+                TD.setSelected(true);
+                TP.setSelected(false);
+                Amphi.setSelected(false);
+                DS.setSelected(false);
                 hourTo.getSelectionModel().clearSelection();
                 hourFrom.getSelectionModel().clearSelection();
                 minuteTo.getSelectionModel().clearSelection();
