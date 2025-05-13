@@ -1,0 +1,101 @@
+#today {
+    -fx-text-fill: coral;
+}
+
+/* Style global de la scène */
+.root {
+    -fx-background-color: #f4f4f4; /* Fond gris clair pour l'ensemble de l'application */
+    -fx-padding: 20px; /* Espacement général autour du contenu */
+    -fx-font-family: 'Arial', sans-serif; /* Police moderne et claire */
+    -fx-alignment: center; /* Centrer tout le contenu de la scène */
+}
+
+/* Style pour la date affichée */
+.label-date {
+    -fx-font-size: 18px; /* Taille de police lisible */
+    -fx-font-weight: bold; /* Gras pour accentuer la date */
+    -fx-text-fill: #2c3e50; /* Couleur sombre pour le texte */
+    -fx-alignment: center; /* Centrer le texte */
+    -fx-padding: 10px;
+    -fx-background-color: #ecf0f1; /* Fond clair et doux */
+    -fx-border-radius: 5px; /* Coins arrondis */
+    -fx-border-color: #bdc3c7; /* Bordure subtile */
+    -fx-border-width: 2px;
+}
+
+/* Style du conteneur vertical pour les jours du calendrier (v1) */
+.vbox-dates {
+    -fx-background-color: rgba(0, 0, 0, 0.7); /* Fond noir avec opacité réduite (70%) */
+    -fx-spacing: 10px; /* Espacement entre les éléments */
+    -fx-alignment: center; /* Centrer les éléments */
+    -fx-padding: 10px; /* Padding pour espacer */
+    -fx-border-radius: 10px; /* Coins arrondis */
+    -fx-border-color: #bdc3c7; /* Bordure subtile */
+    -fx-border-width: 1px;
+}
+
+/* Style pour les jours du mois dans v1 */
+.label-jour {
+    -fx-font-size: 16px; /* Taille de police agréable */
+    -fx-text-fill: white; /* Texte blanc */
+    -fx-padding: 5px;
+    -fx-alignment: center; /* Centrer le texte */
+    -fx-background-color: transparent; /* Fond transparent pour les jours */
+    -fx-border-radius: 5px; /* Coins arrondis pour un look moderne */
+    -fx-border-color: #ecf0f1; /* Bordure douce */
+    -fx-border-width: 1px;
+}
+
+/* Style du ScrollPane */
+.scroll-pane {
+    -fx-background-color: #ffffff; /* Fond clair pour le ScrollPane */
+    -fx-border-radius: 10px; /* Coins arrondis */
+    -fx-border-color: #bdc3c7; /* Bordure subtile */
+    -fx-border-width: 1px;
+    -fx-padding: 10px; /* Padding pour espacer */
+    -fx-alignment: center; /* Centrer le contenu du ScrollPane */
+}
+
+/* Effet de survol pour le ScrollPane */
+.scroll-pane:hover {
+    -fx-border-color: #3498db; /* Bordure bleue au survol */
+}
+
+/* Style de la barre de défilement */
+.scroll-pane .scroll-bar {
+    -fx-background-color: transparent; /* Transparent pour la barre de défilement */
+}
+
+/* Style de la poignée de la barre de défilement */
+.scroll-pane .scroll-bar .thumb {
+    -fx-background-color: #3498db; /* Bleu vif pour la poignée */
+    -fx-border-radius: 5px; /* Coins arrondis */
+    -fx-border-color: #ffffff; /* Bordure blanche */
+    -fx-border-width: 2px;
+}
+
+/* Effet de survol sur la poignée de défilement */
+.scroll-pane .scroll-bar .thumb:hover {
+    -fx-background-color: #1abc9c; /* Changement de couleur au survol */
+}
+
+/* Mise en forme des marges du VBox */
+.vbox {
+    -fx-margin: 10px; /* Espacement entre les éléments */
+}
+
+/* Style du bouton (si utilisé) */
+.button {
+    -fx-background-color: #3498db; /* Fond bleu */
+    -fx-text-fill: white; /* Texte blanc */
+    -fx-border-radius: 5px; /* Coins arrondis */
+    -fx-padding: 8px 20px; /* Padding pour les boutons */
+    -fx-font-size: 14px;
+    -fx-font-weight: bold; /* Gras pour les boutons */
+}
+
+/* Effet de survol pour les boutons */
+.button:hover {
+    -fx-background-color: #1abc9c; /* Fond vert au survol */
+    -fx-cursor: hand; /* Changer le curseur */
+}

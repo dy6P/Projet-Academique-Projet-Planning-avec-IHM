@@ -1,0 +1,43 @@
+#opaque {
+    -fx-background-color: #212121;
+}
+
+#labelJour {
+    -fx-text-fill: white;
+    -fx-underline: true;
+}
+
+.toggle-button {
+    -fx-background-color: #212121;
+    -fx-text-fill: white;
+    -fx-min-height: 80;
+    -fx-min-width: 80;
+}
+
+.toggle-button:selected {
+    -fx-text-fill: #4e99e5;
+}
+
+.toggle-button:hover {
+    -fx-text-fill: #4e99e5;
+}
+
+#today {
+    -fx-text-fill: red;
+}
+
+#today:hover {
+    -fx-text-fill: #DF73FF;
+}
+
+#today:selected {
+    -fx-text-fill: #DF73FF;
+}
+
+#dateHorsMois {
+    -fx-text-fill: #474747;
+}
+
+#dateHorsMois:hover {
+    -fx-text-fill: white;
+}

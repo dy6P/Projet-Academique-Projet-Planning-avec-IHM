@@ -1,0 +1,114 @@
+package vue;
+
+import javafx.application.Platform;
+import javafx.event.ActionEvent;
+import javafx.event.EventHandler;
+import javafx.scene.control.*;
+import javafx.scene.layout.GridPane;
+
+public class GridPaneFormulaireReservation extends GridPane {
+
+    public GridPaneFormulaireReservation() {
+        setGridLinesVisible(false);
+
+
+        Label cours = new Label("_Cours"); // Cours
+        TextField eventName = new TextField();
+        eventName.setPromptText("Entrer un nom de cours");
+        cours.setLabelFor(eventName);
+
+        Label level = new Label("_Type");
+
+        ToggleGroup group = new ToggleGroup();
+        RadioButton debutant = new RadioButton("_TD");
+        debutant.setSelected(true);
+        RadioButton moyen = new RadioButton("_TP");
+        RadioButton avance = new RadioButton("_Amphi");
+        RadioButton expert = new RadioButton("_DS");
+        group.getToggles().addAll(debutant, moyen, avance, expert);
+
+        Label from = new Label("De");
+        Label to = new Label("A");
+
+
+        ChoiceBox<String> hourFrom = new ChoiceBox<String>();
+        ChoiceBox<String> hourTo = new ChoiceBox<String>();
+        ChoiceBox<String> minuteTo = new ChoiceBox<String>();
+        ChoiceBox<String> minuteFrom = new ChoiceBox<String>();
+
+        setHourBox(hourFrom);
+        setHourBox(hourTo);
+        setMinutesBox(minuteFrom);
+        setMinutesBox(minuteTo);
+
+        Button reset = new Button("_Annuler");
+        Button save = new Button("_Enregistrer");
+
+        int heureDebut = hourFrom.getSelectionModel().getSelectedIndex();
+        int minuteDebut = minuteFrom.getSelectionModel().getSelectedIndex();
+        int heureFin = hourTo.getSelectionModel().getSelectedIndex();
+        int minuteFin = minuteTo.getSelectionModel().getSelectedIndex();
+
+        add(cours, 0,0);
+        add(eventName, 1, 0);
+
+        add(level, 0, 1);
+        add(debutant, 1, 1);
+        add(moyen, 2, 1);
+        add(avance, 1, 2);
+        add(expert, 2, 2);
+
+        add(from, 0, 3);
+        add(to, 2, 3);
+        add(hourFrom, 1, 3);
+        add(hourTo, 3, 3);
+        add(minuteFrom, 1, 4);
+        add(minuteTo, 3, 4);
+
+        add(reset, 2, 5);
+        add(save, 3, 5);
+        Platform.runLater(eventName::requestFocus);
+
+
+        reset.setOnAction(new EventHandler<ActionEvent>() {
+            @Override
+            public void handle(ActionEvent actionEvent) {
+                eventName.clear();
+                debutant.setSelected(true);
+                moyen.setSelected(false);
+                avance.setSelected(false);
+                expert.setSelected(false);
+                hourTo.getSelectionModel().clearSelection();
+                hourFrom.getSelectionModel().clearSelection();
+                minuteTo.getSelectionModel().clearSelection();
+                minuteFrom.getSelectionModel().clearSelection();
+
+
+            }
+        });
+
+    }
+
+    private void setMinutesBox(ChoiceBox<String> _c) {
+
+        for (int i = 0; i < 4; i++) {
+            String temp = Integer.toString(i*15);
+            if (temp.length() < 2) {
+                temp = "0" + temp;
+            }
+
+            _c.getItems().add(temp);
+        }
+    }
+
+    private void setHourBox(ChoiceBox<String> _c) {
+
+        for (int i = 8; i < 18; i++) {
+            String temp = Integer.toString(i);
+            if (temp.length() < 2) {
+                temp = "0" + temp;
+            }
+            _c.getItems().add(temp);
+        }
+    }
+}
