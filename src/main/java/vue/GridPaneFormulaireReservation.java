@@ -1,16 +1,19 @@
 package vue;
 
+import controleur.Controleur;
 import javafx.application.Platform;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.scene.control.*;
 import javafx.scene.layout.GridPane;
+import modele.DateCalendrier;
 
 public class GridPaneFormulaireReservation extends GridPane {
+    private DateCalendrier chDateCourante = new DateCalendrier();
+    private Label chJour = new Label(chDateCourante.toString());
 
     public GridPaneFormulaireReservation() {
         setGridLinesVisible(false);
-
 
         Label cours = new Label("_Cours");
         TextField eventName = new TextField();
@@ -49,24 +52,26 @@ public class GridPaneFormulaireReservation extends GridPane {
         int heureFin = hourTo.getSelectionModel().getSelectedIndex();
         int minuteFin = minuteTo.getSelectionModel().getSelectedIndex();
 
-        add(cours, 0,0);
-        add(eventName, 1, 0);
+        add(chJour, 0, 0);
 
-        add(level, 0, 1);
-        add(TD, 1, 1);
-        add(TP, 2, 1);
-        add(Amphi, 1, 2);
-        add(DS, 2, 2);
+        add(cours, 0,1);
+        add(eventName, 1, 1);
 
-        add(from, 0, 3);
-        add(to, 2, 3);
-        add(hourFrom, 1, 3);
-        add(hourTo, 3, 3);
-        add(minuteFrom, 1, 4);
-        add(minuteTo, 3, 4);
+        add(level, 0, 2);
+        add(TD, 1, 2);
+        add(TP, 2, 2);
+        add(Amphi, 1, 3);
+        add(DS, 2, 3);
 
-        add(reset, 2, 5);
-        add(save, 3, 5);
+        add(from, 0, 4);
+        add(to, 2, 4);
+        add(hourFrom, 1, 4);
+        add(hourTo, 3, 4);
+        add(minuteFrom, 1, 5);
+        add(minuteTo, 3, 5);
+
+        add(reset, 2, 6);
+        add(save, 3, 6);
         Platform.runLater(eventName::requestFocus);
 
 
@@ -86,6 +91,8 @@ public class GridPaneFormulaireReservation extends GridPane {
 
             }
         });
+
+        save.setOnAction(new Controleur());
 
     }
 
@@ -110,5 +117,10 @@ public class GridPaneFormulaireReservation extends GridPane {
             }
             _c.getItems().add(temp);
         }
+    }
+
+    public void setDate(DateCalendrier parDate) {
+        chDateCourante = parDate;
+        chJour.setText(chDateCourante.toString());
     }
 }

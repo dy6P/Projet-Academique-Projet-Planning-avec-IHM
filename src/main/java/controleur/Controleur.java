@@ -14,7 +14,9 @@ public class Controleur implements EventHandler {
         GridPaneFormulaireReservation reservationPane = HBoxRoot.getReservationPane();
 
         if (event.getSource() instanceof ToggleButton) {
-
+            ToggleButton toggleButton = (ToggleButton) event.getSource();
+            DateCalendrier dateCalendrier = (DateCalendrier) toggleButton.getUserData();
+            reservationPane.setDate(dateCalendrier);
         }
 
         if (event.getSource() instanceof Button) {
