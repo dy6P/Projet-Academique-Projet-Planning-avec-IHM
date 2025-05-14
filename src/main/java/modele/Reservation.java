@@ -15,7 +15,7 @@ public class Reservation implements Comparable<Reservation> {
     }
 
     public boolean est_valide (){
-        return ChDate.estValide() && ChPlageHoraire.estValide() && ChIntitule != null;
+        return ChDate.estValide() && ChPlageHoraire.estValide() && ChIntitule != null && getChPlageHoraire() != null;
     }
 
 

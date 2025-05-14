@@ -122,7 +122,6 @@ public class GridPaneFormulaireReservation extends GridPane {
         chHeuresDebut.getSelectionModel().clearSelection();
         chMinutesFin.getSelectionModel().clearSelection();
         chMinutesDebut.getSelectionModel().clearSelection();
-
         return new Reservation(chDateCourante, );
     }
 }
