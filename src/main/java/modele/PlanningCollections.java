@@ -32,8 +32,9 @@ public class PlanningCollections {
     }
 
     public String toString () {
-        String str = "\nArrayList\n" + chListe+ "\nTreeSet\n" + chSet + "\nTreeMap\n" + chMap + "\n";
-        return "Taille liste : " + chListe.size() + "\nTaille Set : " + chSet.size() + "Taille Map : " + chMap.size() + str;
+        //String str = "\nArrayList\n" + chListe+ "\nTreeSet\n" + chSet + "\nTreeMap\n" + chMap + "\n";
+        //return "Taille liste : " + chListe.size() + "\nTaille Set : " + chSet.size() + "Taille Map : " + chMap.size() + str;
+        return chMap.toString();
     }
 
     public TreeSet<Reservation> getReservations(DateCalendrier parDate) {
