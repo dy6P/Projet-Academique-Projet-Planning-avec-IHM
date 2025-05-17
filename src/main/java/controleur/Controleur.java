@@ -20,8 +20,14 @@ public class Controleur implements EventHandler {
         }
 
         if (event.getSource() instanceof Button) {
-            Reservation reservation = reservationPane.getReservation();
+            Reservation reservation;
+            try {
+                reservation = reservationPane.getReservation();
+            } catch (ExceptionPlageHoraire parException) {
+                throw new RuntimeException(parException);
+            }
             planning.ajout(reservation);
+            System.out.println(planning);
         }
     }
 }

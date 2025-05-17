@@ -5,7 +5,7 @@ public class Reservation implements Comparable<Reservation> {
     private PlageHoraire ChPlageHoraire;
     private String ChIntitule;
 
-    public Reservation(String parintitule,DateCalendrier parDate,PlageHoraire ParPlageHoraire) throws ExceptionReservation{
+    public Reservation(String parintitule, DateCalendrier parDate,PlageHoraire ParPlageHoraire) throws ExceptionReservation{
         ChIntitule = parintitule;
         ChDate = parDate;
         ChPlageHoraire = ParPlageHoraire;

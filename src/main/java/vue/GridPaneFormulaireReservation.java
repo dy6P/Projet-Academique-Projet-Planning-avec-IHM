@@ -6,22 +6,19 @@ import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.scene.control.*;
 import javafx.scene.layout.GridPane;
-import modele.DateCalendrier;
-import modele.PlageHoraire;
-import modele.Reservation;
+import modele.*;
 
 public class GridPaneFormulaireReservation extends GridPane {
     private DateCalendrier chDateCourante = new DateCalendrier();
-    private PlageHoraire chPlageHoraireCourante;
     private Label chJour = new Label(chDateCourante.toString());
     private ChoiceBox<String> chHeuresDebut = new ChoiceBox<String>();
     private ChoiceBox<String> chMinutesDebut = new ChoiceBox<String>();
     private ChoiceBox<String> chHeuresFin = new ChoiceBox<String>();
     private ChoiceBox<String> chMinutesFin = new ChoiceBox<String>();
-    private int chHeureDebut;
-    private int chHeureFin;
-    private int chMinuteDebut;
-    private int chMinuteFin;
+    private Integer chHeureDebut = 8;
+    private Integer chHeureFin = 9;
+    private Integer chMinuteDebut = 0;
+    private Integer chMinuteFin = 0;
     private TextField chEventName = new TextField();
     private RadioButton chTD = new RadioButton("_TD");
     private RadioButton chTP = new RadioButton("_TP");
@@ -51,11 +48,6 @@ public class GridPaneFormulaireReservation extends GridPane {
         setMinutesBox(chMinutesDebut);
         setMinutesBox(chMinutesFin);
 
-        chHeureDebut = Integer.parseInt(chHeuresDebut.getValue());
-        chMinuteDebut = Integer.parseInt(chMinutesDebut.getValue());
-        chHeureFin = Integer.parseInt(chHeuresFin.getValue());
-        chMinuteFin = Integer.parseInt(chMinutesFin.getValue());
-
         Button reset = new Button("_Annuler");
         Button save = new Button("_Enregistrer");
 
@@ -81,15 +73,7 @@ public class GridPaneFormulaireReservation extends GridPane {
         reset.setOnAction(new EventHandler<ActionEvent>() {
             @Override
             public void handle(ActionEvent actionEvent) {
-                chEventName.clear();
-                chTD.setSelected(true);
-                chTP.setSelected(false);
-                chAmphi.setSelected(false);
-                chDS.setSelected(false);
-                chHeuresFin.getSelectionModel().clearSelection();
-                chHeuresDebut.getSelectionModel().clearSelection();
-                chMinutesFin.getSelectionModel().clearSelection();
-                chMinutesDebut.getSelectionModel().clearSelection();
+                annuler();
             }
         });
         save.setOnAction(new Controleur());
@@ -112,7 +96,7 @@ public class GridPaneFormulaireReservation extends GridPane {
         chJour.setText(chDateCourante.toString());
     }
 
-    public Reservation getReservation() {
+    public void annuler() {
         chEventName.clear();
         chTD.setSelected(true);
         chTP.setSelected(false);
@@ -122,6 +106,23 @@ public class GridPaneFormulaireReservation extends GridPane {
         chHeuresDebut.getSelectionModel().clearSelection();
         chMinutesFin.getSelectionModel().clearSelection();
         chMinutesDebut.getSelectionModel().clearSelection();
-        return new Reservation(chDateCourante, );
+        chHeureFin = 9;
+        chHeureDebut = 8;
+        chMinuteFin = 0;
+        chMinuteDebut = 0;
+    }
+
+    public Reservation getReservation() throws ExceptionPlageHoraire {
+        if (chHeuresDebut.getValue() != null && chHeuresFin.getValue() != null) {
+            chHeureDebut = Integer.parseInt(chHeuresDebut.getValue());
+            chHeureFin = Integer.parseInt(chHeuresFin.getValue());
+            if (chMinutesDebut.getValue() != null && chMinutesFin.getValue() != null) {
+                chMinuteDebut= Integer.parseInt(chMinutesDebut.getValue());
+                chMinuteFin = Integer.parseInt(chMinutesFin.getValue());
+            }
+        }
+        Reservation reservation = new Reservation(chEventName.getText(), chDateCourante, new PlageHoraire(new Horaire(chHeureDebut, chMinuteDebut), new Horaire(chHeureFin, chMinuteFin)));
+        annuler();
+        return reservation;
     }
 }
