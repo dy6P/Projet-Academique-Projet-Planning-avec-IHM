@@ -4,7 +4,11 @@
 
 #labelJour {
     -fx-text-fill: white;
-    -fx-underline: true;
+    -fx-font-weight: bold;
+}
+
+#labelJourW {
+    -fx-text-fill: white;
 }
 
 .toggle-button {
@@ -12,32 +16,45 @@
     -fx-text-fill: white;
     -fx-min-height: 80;
     -fx-min-width: 80;
+    -fx-font-weight: bold;
 }
 
 .toggle-button:selected {
-    -fx-text-fill: #4e99e5;
+    -fx-underline: true;
 }
 
 .toggle-button:hover {
-    -fx-text-fill: #4e99e5;
-}
-
-#today {
-    -fx-text-fill: red;
+    -fx-underline: true;
 }
 
 #today:hover {
-    -fx-text-fill: #DF73FF;
+    -fx-underline: true;
 }
 
 #today:selected {
-    -fx-text-fill: #DF73FF;
+    -fx-underline: true;
+}
+
+#dateW {
+    -fx-font-weight: normal;
+    -fx-text-fill: white;
 }
 
 #dateHorsMois {
+    -fx-font-weight: normal;
     -fx-text-fill: #474747;
 }
 
 #dateHorsMois:hover {
     -fx-text-fill: white;
+    -fx-underline: false;
+}
+
+#today {
+    -fx-text-fill: #40E0D0;
+}
+
+#todayW {
+    -fx-text-fill: #40E0D0;
+    -fx-font-weight: normal;
 }

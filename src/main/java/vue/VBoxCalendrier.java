@@ -43,6 +43,9 @@ public class VBoxCalendrier extends VBox implements ConstantesCalendrier {
             for (String jourAb : JOURS_SEMAINE_ABR){
                 Label labelJour = new Label(jourAb);
                 labelJour.setId("labelJour");
+                if (jourAb.equals("SAM.") || jourAb.equals("DIM.")){
+                    labelJour.setId("labelJourW");
+                }
                 tilePane.getChildren().add(labelJour);
             }
 
@@ -54,14 +57,19 @@ public class VBoxCalendrier extends VBox implements ConstantesCalendrier {
 
                 boutonDate.setUserData(date);
                 boutonDate.setOnAction(new Controleur());
+                if (date.getChJourSemaine() == 6 || date.getChJourSemaine() == 7){
+                    boutonDate.setId("dateW");
+                }
                 if (date.getMois() != monthCalendar.getMois()) {
                     boutonDate.setId("dateHorsMois");
                 }
                 if (date.isToday()) {
                     boutonDate.setId("today");
                 }
+                if (date.isToday() && (date.getChJourSemaine() == 6 || date.getChJourSemaine() == 7)) {
+                    boutonDate.setId("todayW");
+                }
             }
-
             tilePane.setAccessibleText(MOIS[numMois-1]);
             stackPaneMois.getChildren().add(tilePane);
 
