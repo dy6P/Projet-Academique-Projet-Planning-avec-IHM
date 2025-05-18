@@ -10,6 +10,7 @@ public class HBoxRoot extends HBox {
     private static Controleur chControleur;
     private static VBoxCalendrier chCalendrierPane;
     private static GridPaneFormulaireReservation chReservationPane;
+    private static VBoxAffichagePlanning chAffichagePlanning;
 
     public HBoxRoot() {
         chPCollection = new PlanningCollections();
@@ -34,5 +35,9 @@ public class HBoxRoot extends HBox {
 
     public static Controleur getControleur() {
         return chControleur;
+    }
+
+    public static VBoxAffichagePlanning getAffichagePlanning() {
+        return chAffichagePlanning;
     }
 }

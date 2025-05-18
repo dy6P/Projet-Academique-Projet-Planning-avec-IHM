@@ -40,7 +40,7 @@
     -fx-text-fill: white;
 }
 
-#dateHorsMois {
+#dateHorsMois, #dateHorsMoisW {
     -fx-font-weight: normal;
     -fx-text-fill: #474747;
 }
@@ -48,6 +48,13 @@
 #dateHorsMois:hover {
     -fx-text-fill: white;
     -fx-underline: false;
+    -fx-font-weight: bold;
+}
+
+#dateHorsMoisW:hover {
+    -fx-text-fill: white;
+    -fx-underline: false;
+    -fx-font-weight: normal;
 }
 
 #today {

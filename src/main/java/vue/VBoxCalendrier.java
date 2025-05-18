@@ -63,8 +63,12 @@ public class VBoxCalendrier extends VBox implements ConstantesCalendrier {
                 if (date.getMois() != monthCalendar.getMois()) {
                     boutonDate.setId("dateHorsMois");
                 }
+                if (date.getMois() != monthCalendar.getMois() && (date.getChJourSemaine() == 6 || date.getChJourSemaine() == 7)) {
+                    boutonDate.setId("dateHorsMoisW");
+                }
                 if (date.isToday()) {
                     boutonDate.setId("today");
+                    boutonDate.setSelected(true);
                 }
                 if (date.isToday() && (date.getChJourSemaine() == 6 || date.getChJourSemaine() == 7)) {
                     boutonDate.setId("todayW");
