@@ -96,6 +96,10 @@ public class GridPaneFormulaireReservation extends GridPane {
         chJour.setText(chDateCourante.toString());
     }
 
+    public int getNumSemaine() {
+        return chDateCourante.getNoSemaine();
+    }
+
     public void annuler() {
         chEventName.clear();
         chTD.setSelected(true);

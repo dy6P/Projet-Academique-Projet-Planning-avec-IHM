@@ -17,8 +17,9 @@ public class HBoxRoot extends HBox {
         chControleur = new Controleur();
         chCalendrierPane = new VBoxCalendrier();
         chReservationPane = new GridPaneFormulaireReservation();
+        chAffichagePlanning = new VBoxAffichagePlanning();
 
-        this.getChildren().addAll(chCalendrierPane, chReservationPane);
+        this.getChildren().addAll(chCalendrierPane, chReservationPane, chAffichagePlanning);
     }
 
     public static PlanningCollections getPlanning(){
