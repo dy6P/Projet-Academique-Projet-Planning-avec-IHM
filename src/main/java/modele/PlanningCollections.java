@@ -49,6 +49,18 @@ public class PlanningCollections {
         return res;
     }
 
+    public TreeSet<Reservation> getReservations(int parSemaine) {
+        TreeSet<Reservation> res = new TreeSet<>();
+        Iterator<Reservation> it = chSet.iterator();
+        while (it.hasNext()) {
+            Reservation r = it.next();
+            if (r.getChDate().getNoSemaine() == parSemaine) {
+                res.add(r);
+            }
+        }
+        return res;
+    }
+
     public TreeSet<Reservation> getReservations(String parString) {
         TreeSet<Reservation> res = new TreeSet<>();
         Iterator<Reservation> it = chSet.iterator();

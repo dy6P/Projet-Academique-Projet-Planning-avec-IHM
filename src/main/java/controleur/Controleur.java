@@ -19,7 +19,10 @@ public class Controleur implements EventHandler {
             DateCalendrier dateCalendrier = (DateCalendrier) toggleButton.getUserData();
             reservationPane.setDate(dateCalendrier);
             affichagePlanning.setChNumSemaine(dateCalendrier.getNoSemaine());
-            System.out.println(affichagePlanning.getChNumSemaine());
+            affichagePlanning.clearTableDesReservations();
+            for (Reservation reservation : planning.getReservations(dateCalendrier.getNoSemaine())) {
+                affichagePlanning.ajouterReservation(reservation);
+            }
         }
 
         if (event.getSource() instanceof Button) {
@@ -31,6 +34,8 @@ public class Controleur implements EventHandler {
             }
             planning.ajout(reservation);
             System.out.println(planning);
+            affichagePlanning.clearTableDesReservations();
+            affichagePlanning.ajouterReservation(reservation);
         }
     }
 }
