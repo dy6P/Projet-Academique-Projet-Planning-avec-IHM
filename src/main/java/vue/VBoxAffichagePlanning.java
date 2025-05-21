@@ -45,6 +45,10 @@ public class VBoxAffichagePlanning extends VBox {
         tableDesReservations.getItems().clear();
     }
 
+    public TableView<Reservation> getTableDesReservations() {
+        return tableDesReservations;
+    }
+
     public void setChNumSemaine(int parNumSemaine) {
         chNumSemaine.setText("Semaine " + parNumSemaine);
     }

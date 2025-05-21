@@ -35,7 +35,11 @@ public class Controleur implements EventHandler {
             planning.ajout(reservation);
             System.out.println(planning);
             affichagePlanning.clearTableDesReservations();
-            affichagePlanning.ajouterReservation(reservation);
+            DateCalendrier dateCalendrier = reservation.getChDate();
+            affichagePlanning.clearTableDesReservations();
+            for (Reservation reservation2 : planning.getReservations(dateCalendrier.getNoSemaine())) {
+                affichagePlanning.ajouterReservation(reservation2);
+            }
         }
     }
 }
